@@ -1,14 +1,28 @@
 pipeline {
-  agent none
+  agent any
   stages {
-    stage('') {
-      steps {
-        echo 'hola como estan'
+    stage('hola') {
+      parallel {
+        stage('hola') {
+          steps {
+            echo 'hola como estan'
+          }
+        }
+
+        stage('test-pipeline') {
+          steps {
+            echo 'dos'
+          }
+        }
+
       }
     }
 
-  }
-  environment {
-    ramon = '"hola"'
+    stage('') {
+      steps {
+        echo 'jiluil'
+      }
+    }
+
   }
 }
